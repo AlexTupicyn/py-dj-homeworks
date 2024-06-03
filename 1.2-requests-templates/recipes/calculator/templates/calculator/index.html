@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+</head>
+<body>
+<h3> Рецепт:  {{ name_recipe }} </h3>
+{% if porc_recipe > 1 %}
+    <h4> количество ингредиентов на {{ porc_recipe }} поции(й):</h4>
+    {% else%}
+    <h4> количество ингредиентов на {{ porc_recipe }} поцию:</h4>
+{% endif %}
+<ul>
+{% for ingredient, amount in recipe.items %}
+    <li>{{ ingredient }}: {{ amount }}</li>
+{% empty %}
+    <p>Такого рецепта не знаю :(</p>
+{% endfor %}
+</ul>
+</body>
+</html>
